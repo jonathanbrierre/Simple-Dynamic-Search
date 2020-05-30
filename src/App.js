@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import Search from './Search';
+import NamesContainer from './NamesContainer';
+
+class App extends React.Component {
+
+  state = {
+    names: [
+      'John', 'Abigail', 'X Æ A-Xii', 'Beyonce', 'Kim Kardashian', 'George Bush', 'Queen Elizabeth', 'Yeezy', 
+    ],
+    searchTerm: ''
+  }
+
+  editSearchTerm = (e) => {
+    this.setState({searchTerm: e.target.value})
+  }
+
+  dynamicSearch = () => {
+    return this.state.names.filter(name => name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  }
+
+
+    render(){
+      return (
+        <div style = {{textAlign: 'center', paddingTop: '30vh'}}>
+          <Search editSearchTerm = {this.editSearchTerm} searchTerm = {this.state.searchTerm}/>
+          <br></br>
+          <h3>These are the names:</h3>
+          <NamesContainer names = {this.dynamicSearch()}/>
+        </div>
+      );
+    }
 }
 
 export default App;
