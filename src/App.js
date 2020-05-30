@@ -8,7 +8,7 @@ class App extends React.Component {
 
   state = {
     names: [
-      'John', 'Abigail', 'X Æ A-Xii', 'Beyonce', 'Kim Kardashian', 'George Bush', 'Queen Elizabeth', 'Yeezy', 
+      'John', 'Abigail', 'X Æ A-Xii', 'Beyonce', 'Khloe Kardashian', 'George Bush', 'Queen Elizabeth', 'Yeezy', 'Ivanka Trump', 'Leonardo DiCaprio', 
     ],
     searchTerm: ''
   }
@@ -27,7 +27,7 @@ class App extends React.Component {
         <div style = {{textAlign: 'center', paddingTop: '30vh'}}>
           <Search editSearchTerm = {this.editSearchTerm} searchTerm = {this.state.searchTerm}/>
           <br></br>
-          <h3>These are the names:</h3>
+          <h3>These are the important names:</h3>
           <NamesContainer names = {this.dynamicSearch()}/>
         </div>
       );
